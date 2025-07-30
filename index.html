@@ -11,12 +11,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>@keyframes pan { 0% { top: 0%; } 100% { top: -200%; } } #bg { transition: transform 0.5s ease;}</style>
+		<style>@keyframes pan { 0% { top: 0%; } 100% { top: -200%; } } #bg { transition: transform 0.5s ease;}.star-trails {
+				position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 40%), radial-gradient(circle at 70% 50%, rgba(200,220,255,0.08) 0%, transparent 45%);
+				animation: trails-rotate 120s linear infinite; opacity: 0.7; }
+			@keyframes trails-rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }.star-trails:before, .star-trails:after { content: ''; position: absolute; width: 100%; height: 100%; background:radial-gradient(circle at 80% 20%, rgba(180,200,255,0.05) 0%, transparent 50%); animation: trails-rotate 180s linear infinite reverse; opacity: 0.5; }.star-trails:after { background: radial-gradient(circle at 30% 70%, rgba(220,180,255,0.06) 0%, transparent 55%);
+				animation: trails-rotate 240s linear infinite; opacity: 0.4; }
+		</style>
 	</head>
 	<body class="is-preload">
 		<div id="wrapper">
 			<div id="bg" style="background-image: url('images/cosmos-bg.webp'); background-size: cover; background-position: center; background-repeat: repeat-y; height: 300%; position: fixed; top: 0; left: 0; width: 100%; animation: pan 200s linear infinite; z-index: -1;"></div>
-			<div id="overlay"></div>
+			<div id="star-trails"></div>
 			<div id="main">
 	</body>
 </html>	
